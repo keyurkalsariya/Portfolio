@@ -56,7 +56,7 @@ const Experience = () => {
                     <h3 className="text-xl font-bold text-foreground tracking-tight mb-1.5">Frontend Developer</h3>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Building2 size={14} />
-                      <span className="text-sm font-semibold text-foreground/80">MyHub</span>
+                      <span className="text-sm font-semibold text-foreground/80">Toshal infotech</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 mono text-muted-foreground bg-secondary/60 px-3.5 py-2 rounded-lg border border-border/50">
