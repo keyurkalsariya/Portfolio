@@ -15,6 +15,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    // Use native anchor navigation - let the browser handle it
+  };
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -79,17 +84,24 @@ const Navbar = () => {
           >
             <div className="section-container py-6 flex flex-col gap-1">
               {navLinks.map((link, i) => (
-                <motion.a
+                <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.3 }}
-                  className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpen(false);
+                    setTimeout(() => {
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 100);
+                  }}
+                  onTouchEnd={() => setOpen(false)}
+                  className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 rounded-lg transition-colors active:bg-secondary/60"
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
             </div>
           </motion.div>

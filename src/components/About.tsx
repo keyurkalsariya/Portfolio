@@ -43,7 +43,7 @@ const About = () => {
               </p>
               <p>
                 Currently a Frontend Developer at{" "}
-                <span className="text-foreground font-semibold">MyHub</span>, 
+                <span className="text-foreground font-semibold">Toshal infotech</span>, 
                 transitioning into full-stack development with a focus on 
                 AI-integrated applications.
               </p>
